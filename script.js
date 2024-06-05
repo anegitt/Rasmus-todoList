@@ -36,6 +36,7 @@ if (docSnap.exists()) {
   console.log("No such document!");
 }
 
+const listeRef = document.getElementById("liste")
 
 // const q = query(collection(db, "todoItems"), where("erFerdig", "==", false));
 // const querySnapshot = await getDocs(q);
@@ -43,4 +44,7 @@ const querySnapshot = await getDocs(collection(db, "todoItems"));
 querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   console.log(doc.id, " => ", doc.data());
+  const item = document.createElement("li")
+  item.innerHTML = doc.data().tekst
+  listeRef.appendChild(item)
 });
