@@ -3,11 +3,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "PUTT INN DINE VERDIER HER!",
-    authDomain: ".... ",
-    projectId: "...",
-
-    appId: "....",
+  apiKey: "AIzaSyA0zvN5xSoAwvlbwnXckqEUUGIEBMKsVdk",
+  authDomain: "todolist-99d5f.firebaseapp.com",
+  projectId: "todolist-99d5f",
+  storageBucket: "todolist-99d5f.appspot.com",
+  messagingSenderId: "116436697857",
+  appId: "1:116436697857:web:49f80dbe420e955c7e5100",
+  measurementId: "G-E941VH4MQH"
 }
 
 // Initialize Firebase
