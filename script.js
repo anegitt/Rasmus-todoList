@@ -22,7 +22,8 @@ import {
     query,
     where,
     getDoc,
-    getDocs
+    getDocs, 
+    deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
 
 const db = getFirestore(app)
@@ -46,5 +47,19 @@ querySnapshot.forEach((doc) => {
   console.log(doc.id, " => ", doc.data());
   const item = document.createElement("li")
   item.innerHTML = doc.data().tekst
+  item.dataset.id = doc.id
+  if (doc.data().erFerdig) {
+    item.classList.add("ferdig")
+  }
   listeRef.appendChild(item)
+  item.addEventListener("click", klikk)
 });
+
+async function klikk(event) {
+  //Fjern objektet fra lista vår "lokalt": (slettes altså ikke fra Google Firebase)
+  listeRef.removeChild(event.target)
+  //Fjern objektet fra Google Firestore:
+  const id = event.target.dataset.id
+  await deleteDoc(doc(db, "todoItems", "id"));
+
+}
