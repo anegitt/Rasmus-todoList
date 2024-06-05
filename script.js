@@ -37,8 +37,9 @@ if (docSnap.exists()) {
 }
 
 
-const q = query(collection(db, "todoItems"), where("erFerdig", "==", false));
-const querySnapshot = await getDocs(q);
+// const q = query(collection(db, "todoItems"), where("erFerdig", "==", false));
+// const querySnapshot = await getDocs(q);
+const querySnapshot = await getDocs(collection(db, "todoItems"));
 querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   console.log(doc.id, " => ", doc.data());
